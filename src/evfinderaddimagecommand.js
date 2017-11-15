@@ -8,36 +8,43 @@ export default class EVFinderAddImageCommand extends Command {
 	execute( options ) {
 		const editor = this.editor;
 		const doc = editor.document;
-		const batch = options.batch || doc.batch();
 		const url = options.url;
-		const selection = doc.selection;
 
-		doc.enqueueChanges( () => {
+		if (url && url.length) {
+			const batch = options.batch || doc.batch();
+			// const selection = doc.selection;
 			url.forEach((urlelem, idx) => {
-				const imageElement = new ModelElement( 'image', {
-					src: urlelem
-				} );
+				// console.log('addImg', urlelem);
+				doc.enqueueChanges( () => {
+					const imageElement = new ModelElement( 'image', {
+						src: urlelem
+					} );
 
-				let insertAtSelection;
+					let insertAtSelection;
 
-				if ( options.insertAt ) {
-					insertAtSelection = new ModelSelection( [ new ModelRange( options.insertAt ) ] );
-				} else {
-					insertAtSelection = doc.selection;
-				}
+					if ( options.insertAt ) {
+						insertAtSelection = new ModelSelection( [ new ModelRange( options.insertAt ) ] );
+					} else {
+						insertAtSelection = doc.selection;
+					}
 
-				// need to get the next position, otherwise will replace the last image
-				if (insertAtSelection._ranges.length != 0) {
-					insertAtSelection._ranges[0].start.path[0] += idx;
-				}
+					// need to get the next position, otherwise will replace the last image
+					if (insertAtSelection._ranges.length != 0) {
+						insertAtSelection._ranges[0].start.path[0] = insertAtSelection._ranges[0].end.path[0];
+					}
 
-				editor.data.insertContent( imageElement, insertAtSelection, batch );
+					editor.data.insertContent( imageElement, insertAtSelection, batch );
 
-				// Inserting an image might've failed due to schema regulations.
-				if ( imageElement.parent ) {
-					selection.setRanges( [ ModelRange.createOn( imageElement ) ] );
-				}
+					// doc.selection.setRanges([ModelRange.createOn(imageElement)]);
+					// doc.selection.moveFocusTo(doc.selection.getLastPosition(), 'end');
+
+					// Inserting an image might've failed due to schema regulations.
+					/* if ( imageElement.parent ) {
+						selection.setRanges( [ ModelRange.createOn( imageElement ) ] );
+						console.log('section', section);
+					} */
+				});
 			});
-		});
+		}
 	}
 }

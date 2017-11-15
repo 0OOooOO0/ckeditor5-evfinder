@@ -55,10 +55,18 @@ export default class EVFinderButton extends Plugin {
 
 	_createForm() {
 		const editor = this.editor;
-		const formView = new EVFinderView(editor.locale, editor.config.get('evfinder'));
+		const config = editor.config.get('evfinder');
+		const formView = new EVFinderView(editor.locale, config);
 
 		// Hide the panel after clicking on formView `Cancel` button.
 		this.listenTo( formView, 'cancel', () => this._hidePanel( true ) );
+
+		// Execute evfinderAddImage command
+		this.listenTo(formView, 'submit', () => {
+			if (config.submitHandler) {
+				editor.execute('evfinderAddImage', {url: config.submitHandler.call(this)});
+			}
+		})
 
 		// Close the panel on esc key press when the form has focus.
 		formView.keystrokes.set( 'Esc', ( data, cancel ) => {
@@ -89,16 +97,6 @@ export default class EVFinderButton extends Plugin {
 
 	_attachActions() {
 		const viewDocument = this.editor.editing.view;
-
-		// Handle click on view document and show panel when selection is placed inside the link element.
-		// Keep panel open until selection will be inside the same link element.
-		this.listenTo(viewDocument, 'click', () => {
-			const parentLink = this._getSelectedLinkElement();
-
-			if (parentLink) {
-				this._showPanel();
-			}
-		});
 
 		// Focus the form if the balloon is visible and the Tab key has been pressed.
 		this.editor.keystrokes.set( 'Tab', ( data, cancel ) => {
@@ -161,10 +159,6 @@ export default class EVFinderButton extends Plugin {
 				view: this.formView,
 				position: this._getBalloonPositionData()
 			} );
-
-			if ( focusInput ) {
-				//this.formView.urlInputView.select();
-			}
 		}
 
 	}
