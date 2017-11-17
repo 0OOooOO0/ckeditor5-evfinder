@@ -13,6 +13,7 @@ import EVFinderView from './ui/evfinderview';
 import EVFinderElement from './evfinderelement';
 import EVFinderAddImageCommand from './evfinderaddimagecommand';
 
+import '../theme/button.scss';
 
 /**
  * Image upload button plugin.
