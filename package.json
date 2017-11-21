@@ -1,52 +1,4 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "@ckeditor/ckeditor5-upload@^1.0.0-alpha.1",
-        "scope": "@ckeditor",
-        "escapedName": "@ckeditor%2fckeditor5-upload",
-        "name": "@ckeditor/ckeditor5-upload",
-        "rawSpec": "^1.0.0-alpha.1",
-        "spec": ">=1.0.0-alpha.1 <2.0.0",
-        "type": "range"
-      },
-      "C:\\Users\\nc\\Documents\\ckeditor5-build-classic"
-    ]
-  ],
-  "_from": "@ckeditor/ckeditor5-upload@>=1.0.0-alpha.1 <2.0.0",
-  "_id": "@ckeditor/ckeditor5-upload@1.0.0-alpha.1",
-  "_inCache": true,
-  "_location": "/@ckeditor/ckeditor5-upload",
-  "_nodeVersion": "6.9.1",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/ckeditor5-upload-1.0.0-alpha.1.tgz_1507033864768_0.41408091713674366"
-  },
-  "_npmUser": {
-    "name": "ckeditor",
-    "email": "npm@cksource.com"
-  },
-  "_npmVersion": "4.0.3",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "@ckeditor/ckeditor5-upload@^1.0.0-alpha.1",
-    "scope": "@ckeditor",
-    "escapedName": "@ckeditor%2fckeditor5-upload",
-    "name": "@ckeditor/ckeditor5-upload",
-    "rawSpec": "^1.0.0-alpha.1",
-    "spec": ">=1.0.0-alpha.1 <2.0.0",
-    "type": "range"
-  },
-  "_requiredBy": [
-    "#DEV:/",
-    "/@ckeditor/ckeditor5-adapter-ckfinder",
-    "/@ckeditor/ckeditor5-easy-image"
-  ],
-  "_resolved": "https://registry.npmjs.org/@ckeditor/ckeditor5-upload/-/ckeditor5-upload-1.0.0-alpha.1.tgz",
-  "_shasum": "33191666856ca7325166fb6240f698779309117f",
-  "_shrinkwrap": null,
-  "_spec": "@ckeditor/ckeditor5-upload@^1.0.0-alpha.1",
-  "_where": "C:\\Users\\nc\\Documents\\ckeditor5-build-classic",
   "dependencies": {
     "@ckeditor/ckeditor5-core": "^1.0.0-alpha.1",
     "@ckeditor/ckeditor5-engine": "^1.0.0-alpha.1",
@@ -75,6 +27,7 @@
     "npm": ">=3.0.0"
   },
   "files": [
+    "lang",
     "src",
     "theme"
   ],
