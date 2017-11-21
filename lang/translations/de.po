@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"Language: de\n"
+"Language-Team: German (https://www.transifex.com/ckeditor/teams/11143/de/)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "Toolbar button tooltip for the Underline feature."
+msgid "Underline"
+msgstr "Unterstreichen"
+
+msgctxt "Label for the Full size image option."
+msgid "Full size image"
+msgstr "Bild in voller Größe"
+
+msgctxt "Image Toolbar button tooltip for the Left aligned image feature."
+msgid "Left aligned image"
+msgstr "Bild linksbündig ausrichten"
+
+msgctxt "Image Toolbar button tooltip for the Right aligned image feature."
+msgid "Right aligned image"
+msgstr "Bild rechtsbündig ausrichten"
+
+msgctxt "Label for the URL input in the Link dialog."
+msgid "Link URL"
+msgstr "Link-URL"
