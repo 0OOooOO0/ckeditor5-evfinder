@@ -64,10 +64,10 @@ export default class EVFinderButton extends Plugin {
 
 		// Execute evfinderAddImage command
 		this.listenTo(formView, 'submit', () => {
-			if (config.submitHandler) {
-				editor.execute('evfinderAddImage', {url: config.submitHandler.call(this)});
+			if (config.handler.submit) {
+				editor.execute('evfinderAddImage', {url: config.handler.submit.call(this)});
 			}
-		})
+		});
 
 		// Close the panel on esc key press when the form has focus.
 		formView.keystrokes.set( 'Esc', ( data, cancel ) => {

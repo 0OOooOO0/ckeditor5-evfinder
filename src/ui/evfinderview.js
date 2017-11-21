@@ -8,7 +8,6 @@ import ViewCollection from '@ckeditor/ckeditor5-ui/src/viewcollection';
 
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 import EVFrameView from './evframeview';
-import InputTextView from '@ckeditor/ckeditor5-ui/src/inputtext/inputtextview';
 
 import submitHandler from '@ckeditor/ckeditor5-ui/src/bindings/submithandler';
 import FocusTracker from '@ckeditor/ckeditor5-utils/src/focustracker';
@@ -54,7 +53,7 @@ export default class EVFinderView extends View {
 		 *
 		 * @member {module:ui/labeledinput/labeledinputview~LabeledInputView}
 		 */
-		this.urlInputView = this._createContainer();
+		this.containerEVFinder = this._createContainer();
 
 		/**
 		 * The Save button view.
@@ -121,7 +120,7 @@ export default class EVFinderView extends View {
 			},
 
 			children: [
-				this.urlInputView,
+				this.containerEVFinder,
 				{
 					tag: 'div',
 
@@ -144,7 +143,7 @@ export default class EVFinderView extends View {
 		} );
 
 		const childViews = [
-			this.urlInputView,
+			this.containerEVFinder,
 			this.saveButtonView,
 			this.cancelButtonView
 		];
